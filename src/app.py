@@ -22,8 +22,14 @@ print("=== SISTEM PREDIKSI NILAI SISWA ===")
 jam_belajar = float(input("Masukkan jam belajar: "))
 kehadiran = float(input("Masukkan kehadiran: "))
 
+# Data baru
+data_baru = pd.DataFrame({
+    'jam_belajar': [jam_belajar],
+    'kehadiran': [kehadiran]
+})
+
 # Prediksi
-hasil = model.predict([[jam_belajar, kehadiran]])
+hasil = model.predict(data_baru)
 
 # Output
 print("Hasil Prediksi:", hasil[0])
